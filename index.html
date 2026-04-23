@@ -4,63 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비트의 부적 - 당신만을 위한 한 줄 가사</title>
+    <!-- CSS 경로 수정 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="pixel-text">BIT AMULET</h1>
-            <p class="subtitle">이름과 고민을 남기면, 당신만을 위한 부적을 드립니다.</p>
-        </header>
+    <div class="layout-wrapper">
+        <!-- 기존 메인 컨텐츠 -->
+        <div class="container">
+            <header>
+                <h1 class="pixel-text">BIT AMULET</h1>
+                <p class="subtitle">이름과 고민을 남기면, 당신만을 위한 부적을 드립니다.</p>
+            </header>
 
-        <main>
-            <section id="input-section" class="card">
-                <div class="input-group">
-                    <label for="username">당신의 이름</label>
-                    <input type="text" id="username" placeholder="이름을 입력하세요" maxlength="10">
-                </div>
-                <div class="input-group">
-                    <label for="worry">오늘의 고민</label>
-                    <textarea id="worry" placeholder="어떤 고민이 있으신가요? (예: 취업, 사랑, 피곤...)" rows="3"></textarea>
-                </div>
-                <button id="generate-btn" class="pixel-btn">부적 생성하기</button>
+            <main>
+                <section id="input-section" class="card">
+                    <div class="input-group">
+                        <label for="username">당신의 이름</label>
+                        <input type="text" id="username" placeholder="이름을 입력하세요" maxlength="10">
+                    </div>
+                    <div class="input-group">
+                        <label for="worry">오늘의 고민</label>
+                        <textarea id="worry" placeholder="어떤 고민이 있으신가요? (예: 취업, 사랑, 피곤...)" rows="3"></textarea>
+                    </div>
+                    <button id="generate-btn" class="pixel-btn">부적 생성하기</button>
+                </section>
+
+                <section id="result-section" class="card hidden">
+                    <div id="pixel-icon-container">
+                        <!-- SVG 픽셀 아트가 여기에 들어갑니다 -->
+                    </div>
+                    <h2 id="result-name"></h2>
+                    <div class="lyric-box">
+                        <p id="result-lyric" class="pixel-text-sub"></p>
+                    </div>
+                    <button id="retry-btn" class="pixel-btn secondary">다시 쓰기</button>
+                </section>
+            </main>
+
+            <section id="contact-section" class="card" style="margin-top: 2rem;">
+                <h3 class="pixel-text" style="font-size: 1rem; margin-bottom: 1.5rem;">PARTNERSHIP</h3>
+                <form action="https://formspree.io/f/mqewgvky" method="POST">
+                    <div class="input-group">
+                        <label>이름 / 기업명</label>
+                        <input type="text" name="name" placeholder="성함 혹은 기업명을 입력하세요" required>
+                    </div>
+                    <div class="input-group">
+                        <label>회신 받을 이메일</label>
+                        <input type="email" name="_replyto" placeholder="example@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>문의 내용</label>
+                        <textarea name="message" placeholder="제휴 제안이나 문의 내용을 적어주세요" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="pixel-btn secondary" style="margin-top: 0; width: 100%;">문의 보내기</button>
+                </form>
             </section>
 
-            <section id="result-section" class="card hidden">
-                <div id="pixel-icon-container">
-                    <!-- SVG 픽셀 아트가 여기에 들어갑니다 -->
-                </div>
-                <h2 id="result-name"></h2>
-                <div class="lyric-box">
-                    <p id="result-lyric" class="pixel-text-sub"></p>
-                </div>
-                <button id="retry-btn" class="pixel-btn secondary">다시 쓰기</button>
-            </section>
-        </main>
+            <footer>
+                <p>&copy; 2026 Bit Amulet Service</p>
+            </footer>
+        </div>
 
-        <section id="contact-section" class="card" style="margin-top: 2rem;">
-            <h3 class="pixel-text" style="font-size: 1rem; margin-bottom: 1.5rem;">PARTNERSHIP</h3>
-            <form action="https://formspree.io/f/mqewgvky" method="POST">
-                <div class="input-group">
-                    <label>이름 / 기업명</label>
-                    <input type="text" name="name" placeholder="성함 혹은 기업명을 입력하세요" required>
-                </div>
-                <div class="input-group">
-                    <label>회신 받을 이메일</label>
-                    <input type="email" name="_replyto" placeholder="example@email.com" required>
-                </div>
-                <div class="input-group">
-                    <label>문의 내용</label>
-                    <textarea name="message" placeholder="제휴 제안이나 문의 내용을 적어주세요" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="pixel-btn secondary" style="margin-top: 0; width: 100%;">문의 보내기</button>
-            </form>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 Bit Amulet Service</p>
-        </footer>
+        <!-- Disqus 댓글 섹션 -->
+        <aside class="comment-section">
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                var disqus_config = function () {
+                    this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = 'bit-amulet-page'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://bit-amulet.disqus.com/embed.js'; // 'bit-amulet' 부분을 실제 shortname으로 수정하세요.
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </aside>
     </div>
+
+    <!-- JS 경로 수정 -->
     <script src="script.js"></script>
 </body>
 </html>
