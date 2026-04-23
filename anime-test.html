@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,48 +20,56 @@
             justify-content: center;
             background: rgba(0, 0, 0, 0.2);
         }
+
         #image-preview {
             max-width: 100%;
             max-height: 100%;
             display: none;
         }
+
         .prediction-bar-container {
             margin-top: 10px;
             text-align: left;
         }
+
         .prediction-label {
             font-size: 0.8rem;
             margin-bottom: 5px;
             color: var(--neon-blue);
         }
+
         .progress-bg {
             background: rgba(255, 255, 255, 0.1);
             height: 10px;
             border-radius: 5px;
             overflow: hidden;
         }
+
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
             width: 0%;
             transition: width 0.5s ease;
         }
+
         .loading-text {
             font-family: 'Press Start 2P', cursive;
             font-size: 0.7rem;
             color: var(--neon-pink);
             margin: 20px 0;
         }
+
         #upload-input {
             display: none;
         }
     </style>
 </head>
+
 <body>
     <div class="theme-toggle">
         <button id="theme-btn" title="테마 변경">🌙</button>
     </div>
-    
+
     <div class="layout-wrapper">
         <div class="container">
             <header>
@@ -74,8 +83,10 @@
                         <div style="font-size: 4rem; margin-bottom: 20px;">🖼️</div>
                         <p class="pixel-text-sub" style="margin-bottom: 2rem; font-size: 1rem;">당신의 사진을 보여주세요!</p>
                         <input type="file" id="upload-input" accept="image/*">
-                        <button onclick="document.getElementById('upload-input').click()" class="pixel-btn">사진 업로드하기</button>
-                        <p style="margin-top: 15px; font-size: 0.7rem; color: var(--text-gray);">*얼굴이 잘 나온 사진일수록 정확합니다</p>
+                        <button onclick="document.getElementById('upload-input').click()" class="pixel-btn">사진
+                            업로드하기</button>
+                        <p style="margin-top: 15px; font-size: 0.7rem; color: var(--text-gray);">*얼굴이 잘 나온 사진일수록 정확합니다
+                        </p>
                     </div>
 
                     <div id="loading-view" class="hidden">
@@ -95,11 +106,14 @@
                             </div>
                         </div>
                         <div id="label-container"></div>
-                        <button onclick="resetTest()" class="pixel-btn secondary" style="margin-top: 2rem;">다른 사진으로 하기</button>
+                        <button onclick="resetTest()" class="pixel-btn secondary" style="margin-top: 2rem;">다른 사진으로
+                            하기</button>
                     </div>
                 </section>
 
-                <a href="index.html" class="pixel-btn secondary" style="display: inline-block; text-decoration: none; margin-top: 2rem; width: auto; padding: 0.8rem 2rem;">← 부적 생성기로 돌아가기</a>
+                <a href="index.html" class="pixel-btn secondary"
+                    style="display: inline-block; text-decoration: none; margin-top: 2rem; width: auto; padding: 0.8rem 2rem;">←
+                    부적 생성기로 돌아가기</a>
             </main>
 
             <footer>
@@ -113,7 +127,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script>
         // 테마 및 Disqus 설정 (기존과 동일)
         const themeBtn = document.getElementById('theme-btn');
@@ -128,14 +143,14 @@
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             themeBtn.innerText = newTheme === 'dark' ? '🌙' : '☀️';
-            if (typeof DISQUS !== 'undefined') { DISQUS.reset({reload: true}); }
+            if (typeof DISQUS !== 'undefined') { DISQUS.reset({ reload: true }); }
         });
 
         var disqus_config = function () {
             this.page.url = window.location.href;
             this.page.identifier = 'anime-lookalike-test';
         };
-        (function() {
+        (function () {
             var d = document, s = d.createElement('script');
             s.src = 'https://luck-station.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
@@ -170,7 +185,7 @@
                 reader.onload = async (event) => {
                     imagePreview.src = event.target.result;
                     imagePreview.style.display = 'block';
-                    
+
                     // 이미지가 로드된 후 예측 실행
                     imagePreview.onload = async () => {
                         await predict();
@@ -194,7 +209,7 @@
             '드라이브 아저씨': 'images/드라이브 아저씨.jpg',
             '브레드아저씨': 'images/브레드아저씨.png',
             '카레빵맨': 'images/카레빵맨.png',
-            '로즈': 'images/로즈.jpg'
+            '로즈': 'images/로즈.png'
         };
 
         async function predict() {
@@ -202,8 +217,8 @@
             const labelContainer = document.getElementById("label-container");
             const characterImg = document.getElementById("character-img");
             const characterLabel = document.getElementById("character-label");
-            
-            labelContainer.innerHTML = ''; 
+
+            labelContainer.innerHTML = '';
 
             // 결과 정렬 (확률 높은 순)
             prediction.sort((a, b) => b.probability - a.probability);
@@ -216,7 +231,7 @@
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction = prediction[i].className;
                 const probability = (prediction[i].probability * 100).toFixed(0);
-                
+
                 const container = document.createElement("div");
                 container.className = "prediction-bar-container";
                 container.innerHTML = `
@@ -233,9 +248,10 @@
             document.getElementById('upload-view').classList.remove('hidden');
             imagePreview.style.display = 'none';
         }
-        
+
         // 페이지 로드 시 모델 미리 준비
         loadModel();
     </script>
 </body>
+
 </html>
