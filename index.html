@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <body>
         <nav class="main-nav">
             <div class="nav-container">
@@ -32,97 +33,100 @@
 
         <div class="layout-wrapper">
 
-        <div class="container">
-            <header>
-                <h1 class="pixel-text">BIT AMULET</h1>
-                <p class="subtitle">마음을 치유하는 디지털 부적과 AI 캐릭터 테스트</p>
-            </header>
+            <div class="container">
+                <header>
+                    <h1 class="pixel-text">BIT AMULET</h1>
+                    <p class="subtitle">마음을 치유하는 디지털 부적과 AI 캐릭터 테스트</p>
+                </header>
 
-            <main>
-                <!-- 애니 테스트 바로가기 배너 -->
-                <section class="card"
-                    style="margin-bottom: 2rem; border: 1px solid var(--neon-pink); background: rgba(255, 126, 179, 0.05);">
-                    <h3 class="pixel-text" style="color: var(--neon-pink); font-size: 0.9rem;">AI SPECIAL TEST</h3>
-                    <p style="font-size: 0.85rem; margin-bottom: 1.5rem;">Teachable Machine 기반 나랑 닮은 웃긴 캐릭터 찾기!</p>
-                    <a href="anime-test.html" class="pixel-btn"
-                        style="background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple)); text-decoration: none; display: block; text-align: center;">테스트하러
-                        가기</a>
-                </section>
+                <main>
+                    <!-- 애니 테스트 바로가기 배너 -->
+                    <section class="card"
+                        style="margin-bottom: 2rem; border: 1px solid var(--neon-pink); background: rgba(255, 126, 179, 0.05);">
+                        <h3 class="pixel-text" style="color: var(--neon-pink); font-size: 0.9rem;">AI SPECIAL TEST</h3>
+                        <p style="font-size: 0.85rem; margin-bottom: 1.5rem;">Teachable Machine 기반 나랑 닮은 웃긴 캐릭터 찾기!</p>
+                        <a href="anime-test.html" class="pixel-btn"
+                            style="background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple)); text-decoration: none; display: block; text-align: center;">테스트하러
+                            가기</a>
+                    </section>
 
-                <section id="input-section" class="card">
-                    <h2 class="pixel-text" style="font-size: 0.8rem; margin-bottom: 1.5rem;">DIGITAL AMULET</h2>
-                    <div class="input-group">
-                        <label for="username">당신의 이름</label>
-                        <input type="text" id="username" placeholder="이름을 입력하세요" maxlength="10">
+                    <section id="input-section" class="card">
+                        <h2 class="pixel-text" style="font-size: 0.8rem; margin-bottom: 1.5rem;">DIGITAL AMULET</h2>
+                        <div class="input-group">
+                            <label for="username">당신의 이름</label>
+                            <input type="text" id="username" placeholder="이름을 입력하세요" maxlength="10">
+                        </div>
+                        <div class="input-group">
+                            <label for="worry">오늘의 고민</label>
+                            <textarea id="worry" placeholder="어떤 고민이 있으신가요? (예: 취업, 사랑, 피곤...)" rows="3"></textarea>
+                        </div>
+                        <button id="generate-btn" class="pixel-btn">부적 생성하기</button>
+                    </section>
+
+                    <section id="result-section" class="card hidden">
+                        <div id="pixel-icon-container"></div>
+                        <h2 id="result-name"></h2>
+                        <div class="lyric-box">
+                            <p id="result-lyric" class="pixel-text-sub"></p>
+                        </div>
+                        <button id="retry-btn" class="pixel-btn secondary">다시 쓰기</button>
+                    </section>
+
+                    <!-- 정보성 콘텐츠 추가 (애드센스 승인용) -->
+                    <section id="about-section" class="card" style="margin-top: 2rem; text-align: left;">
+                        <h3 class="pixel-text" style="font-size: 0.8rem; margin-bottom: 1rem;">ABOUT SERVICE</h3>
+                        <div style="font-size: 0.9rem; color: var(--text-gray); line-height: 1.8;">
+                            <p><strong>비트의 부적</strong>은 일상의 지친 마음을 8비트 감성의 가사와 함께 위로하기 위해 만들어진 공간입니다.</p>
+                            <p>우리가 제공하는 모든 가사는 당신의 고민 키워드를 분석하여 가장 따뜻한 울림을 줄 수 있는 구절을 엄선합니다. 디지털 세상 속에서도 따뜻한 진심이 전달되기를
+                                바랍니다.
+                            </p>
+                            <p style="margin-top: 1rem;">또한, 구글의 <strong>Teachable Machine</strong> 인공지능 기술을 활용하여 재미있는
+                                애니
+                                닮은꼴 테스트를 제공하고 있습니다. 여러분의 즐거움과 휴식을 위한 공간으로 만들어 가겠습니다.</p>
+                        </div>
+                    </section>
+                </main>
+
+                <footer>
+                    <div class="footer-links" style="margin-bottom: 1rem;">
+                        <a href="privacy.html"
+                            style="color: var(--text-gray); text-decoration: none; font-size: 0.8rem; margin: 0 10px;">개인정보처리방침</a>
+                        <a href="#"
+                            style="color: var(--text-gray); text-decoration: none; font-size: 0.8rem; margin: 0 10px;">이용약관</a>
                     </div>
-                    <div class="input-group">
-                        <label for="worry">오늘의 고민</label>
-                        <textarea id="worry" placeholder="어떤 고민이 있으신가요? (예: 취업, 사랑, 피곤...)" rows="3"></textarea>
-                    </div>
-                    <button id="generate-btn" class="pixel-btn">부적 생성하기</button>
-                </section>
+                    <p>&copy; 2026 Bit Amulet Service. All Rights Reserved.</p>
+                </footer>
+            </div>
 
-                <section id="result-section" class="card hidden">
-                    <div id="pixel-icon-container"></div>
-                    <h2 id="result-name"></h2>
-                    <div class="lyric-box">
-                        <p id="result-lyric" class="pixel-text-sub"></p>
-                    </div>
-                    <button id="retry-btn" class="pixel-btn secondary">다시 쓰기</button>
-                </section>
 
-                <!-- 정보성 콘텐츠 추가 (애드센스 승인용) -->
-                <section id="about-section" class="card" style="margin-top: 2rem; text-align: left;">
-                    <h3 class="pixel-text" style="font-size: 0.8rem; margin-bottom: 1rem;">ABOUT SERVICE</h3>
-                    <div style="font-size: 0.9rem; color: var(--text-gray); line-height: 1.8;">
-                        <p><strong>비트의 부적</strong>은 일상의 지친 마음을 8비트 감성의 가사와 함께 위로하기 위해 만들어진 공간입니다.</p>
-                        <p>우리가 제공하는 모든 가사는 당신의 고민 키워드를 분석하여 가장 따뜻한 울림을 줄 수 있는 구절을 엄선합니다. 디지털 세상 속에서도 따뜻한 진심이 전달되기를 바랍니다.
-                        </p>
-                        <p style="margin-top: 1rem;">또한, 구글의 <strong>Teachable Machine</strong> 인공지능 기술을 활용하여 재미있는 애니
-                            닮은꼴 테스트를 제공하고 있습니다. 여러분의 즐거움과 휴식을 위한 공간으로 만들어 가겠습니다.</p>
-                    </div>
-                </section>
-            </main>
-
-            <footer>
-                <div class="footer-links" style="margin-bottom: 1rem;">
-                    <a href="privacy.html"
-                        style="color: var(--text-gray); text-decoration: none; font-size: 0.8rem; margin: 0 10px;">개인정보처리방침</a>
-                    <a href="#"
-                        style="color: var(--text-gray); text-decoration: none; font-size: 0.8rem; margin: 0 10px;">이용약관</a>
-                </div>
-                <p>&copy; 2026 Bit Amulet Service. All Rights Reserved.</p>
-            </footer>
+            <!-- Disqus 댓글 섹션 -->
+            <aside class="comment-section">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://luck-station.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                        powered
+                        by Disqus.</a></noscript>
+            </aside>
         </div>
 
-
-        <!-- Disqus 댓글 섹션 -->
-        <aside class="comment-section">
-            <div id="disqus_thread"></div>
-            <script>
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                /*
-                var disqus_config = function () {
-                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
-                (function () { // DON'T EDIT BELOW THIS LINE
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://luck-station.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
-                    by Disqus.</a></noscript>
-        </aside>
-    </div>
-
-    <!-- JS 경로 수정 -->
-    <script src="script.js"></script>
-</body>
+        <!-- JS 경로 수정 -->
+        <script src="script.js"></script>
+    </body>
 
 </html>

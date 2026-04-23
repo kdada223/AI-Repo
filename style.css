@@ -68,8 +68,15 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
-    height: 100%; /* 부모 높이 활용 */
-    margin: 0;
+    height: 100%;
+    margin: 0 !important; /* 모든 마진 제거 */
+    padding: 0;
+    line-height: 1; /* 라인 높이 초기화 */
+}
+
+.nav-logo.pixel-text {
+    margin-bottom: 0 !important; /* pixel-text의 하단 마진 강제 제거 */
+    font-size: 0.8rem; /* 로고 사이즈 고정 */
 }
 
 .nav-right {
