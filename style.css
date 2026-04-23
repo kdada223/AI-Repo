@@ -16,21 +16,21 @@
 
 [data-theme="light"] {
     /* Light Mode (Optimized) */
-    --bg-color: #f8f9fa;
+    --bg-color: #f0f2f5; /* 약간 더 대비가 있는 회색 배경 */
     --card-bg: #ffffff;
     --neon-blue: #0070f3;
     --neon-pink: #eb008b;
     --neon-purple: #7928ca;
-    --text-white: #111111;
-    --text-gray: #444444;
-    --input-bg: #f0f2f5;
-    --border-color: rgba(0, 0, 0, 0.08);
-    --shadow: rgba(0, 0, 0, 0.1);
+    --text-white: #1a1a1b; /* 짙은 차콜색으로 가독성 확보 */
+    --text-gray: #4f4f50;
+    --input-bg: #ffffff;
+    --border-color: rgba(0, 0, 0, 0.15); /* 보더를 더 명확하게 */
+    --shadow: rgba(0, 0, 0, 0.08);
 }
 
 * {
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 body {
@@ -66,18 +66,27 @@ body {
 .comment-section {
     flex: 0 0 380px;
     background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    padding: 1.5rem;
+    padding: 2rem 1.5rem; /* 여백 증가 */
     border-radius: 24px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 20px 40px var(--shadow);
+    box-shadow: 0 10px 30px var(--shadow);
     margin-top: 10.5rem; 
     position: sticky;
     top: 2rem;
+    opacity: 1 !important; /* 투명도 강제 제거 */
+    visibility: visible !important;
 }
 
 #disqus_thread {
     width: 100%;
+    min-height: 500px; /* 영역 확보 */
+}
+
+/* 푸터 및 기타 텍스트 가독성 */
+footer {
+    margin-top: 3rem;
+    color: var(--text-gray);
+    font-size: 0.85rem;
 }
 
 @media (max-width: 1300px) {
