@@ -1,3 +1,31 @@
+const themeBtn = document.getElementById('theme-btn');
+const body = document.body;
+
+// 테마 초기화
+const currentTheme = localStorage.getItem('theme') || 'dark';
+body.setAttribute('data-theme', currentTheme);
+themeBtn.innerText = currentTheme === 'dark' ? '🌙' : '☀️';
+
+themeBtn.addEventListener('click', () => {
+    const isDark = body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeBtn.innerText = newTheme === 'dark' ? '🌙' : '☀️';
+
+    // Disqus 테마 업데이트를 위해 리로드 (Disqus는 보통 자동 감지하지만 명시적 리로드가 확실함)
+    if (typeof DISQUS !== 'undefined') {
+        DISQUS.reset({
+            reload: true,
+            config: function () {
+                this.page.identifier = 'bit-amulet-page';
+                this.page.url = window.location.href;
+            }
+        });
+    }
+});
+
 const lyricsDB = {
     love: [
         "사랑은 서두르지 않아도 괜찮아요. 당신의 계절에 맞춰 가장 아름답게 피어날 테니까.",
