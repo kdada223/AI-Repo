@@ -57,9 +57,29 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
+    height: 70px; /* 높이 고정 */
     display: flex;
     justify-content: space-between;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.nav-logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%; /* 부모 높이 활용 */
+    margin: 0;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
     align-items: center;
 }
 
@@ -76,6 +96,28 @@ body {
     color: var(--neon-blue);
 }
 
+/* 테마 토글 버튼 (Nav 내부로 이동) */
+#theme-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-white);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s;
+}
+
+#theme-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
 .layout-wrapper {
     display: flex;
     justify-content: center;
@@ -83,7 +125,7 @@ body {
     gap: 3rem;
     width: 100%;
     margin: 0 auto;
-    padding: 8rem 2rem 4rem 2rem; /* 네비게이션 공간 확보 */
+    padding: 100px 2rem 4rem 2rem; /* nav 높이 고려 */
 }
 
 .layout-wrapper::before {
