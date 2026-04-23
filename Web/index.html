@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비트의 부적 - 당신만을 위한 한 줄 가사</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="container">
+        <header>
+            <h1 class="pixel-text">BIT AMULET</h1>
+            <p class="subtitle">이름과 고민을 남기면, 당신만을 위한 부적을 드립니다.</p>
+        </header>
 
+        <main>
+            <section id="input-section" class="card">
+                <div class="input-group">
+                    <label for="username">당신의 이름</label>
+                    <input type="text" id="username" placeholder="이름을 입력하세요" maxlength="10">
+                </div>
+                <div class="input-group">
+                    <label for="worry">오늘의 고민</label>
+                    <textarea id="worry" placeholder="어떤 고민이 있으신가요? (예: 취업, 사랑, 피곤...)" rows="3"></textarea>
+                </div>
+                <button id="generate-btn" class="pixel-btn">부적 생성하기</button>
+            </section>
+
+            <section id="result-section" class="card hidden">
+                <div id="pixel-icon-container">
+                    <!-- SVG 픽셀 아트가 여기에 들어갑니다 -->
+                </div>
+                <h2 id="result-name"></h2>
+                <div class="lyric-box">
+                    <p id="result-lyric" class="pixel-text-sub"></p>
+                </div>
+                <button id="retry-btn" class="pixel-btn secondary">다시 쓰기</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Bit Amulet Service</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
 </body>
-
 </html>

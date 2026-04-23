@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+KR:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --neon-blue: #00f2ff;
+    --neon-pink: #ff00ff;
+    --neon-yellow: #ffff00;
+    --text-white: #ffffff;
+    --text-gray: #8b949e;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.pixel-text {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--neon-blue);
+    text-shadow: 2px 2px 0px var(--neon-pink);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid #30363d;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: #010409;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    color: var(--text-white);
+    box-sizing: border-box;
+}
+
+.pixel-btn {
+    background-color: var(--neon-blue);
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--neon-pink);
+    transition: transform 0.1s;
+}
+
+.pixel-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--neon-pink);
+}
+
+.secondary {
+    background-color: var(--text-gray);
+    box-shadow: 4px 4px 0px #30363d;
+    margin-top: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.lyric-box {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-left: 4px solid var(--neon-blue);
+    background-color: rgba(0, 242, 255, 0.05);
+}
+
+#result-name {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.pixel-text-sub {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--neon-yellow);
+}
+
+#pixel-icon-container {
+    margin-bottom: 1.5rem;
+}
+
+svg {
+    filter: drop-shadow(0 0 8px var(--neon-blue));
+}
