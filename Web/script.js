@@ -1,31 +1,35 @@
 const lyricsDB = {
     love: [
-        "사랑은 타이밍이 아니라, 네가 마음을 여는 순간 시작돼.",
-        "수많은 별들 중에서도 네 마음은 가장 밝게 빛나고 있어.",
-        "서로의 속도가 달라도 결국 같은 풍경을 보게 될 거야."
+        "사랑은 서두르지 않아도 괜찮아요. 당신의 계절에 맞춰 가장 아름답게 피어날 테니까.",
+        "수많은 인연 속에서도 당신의 진심은 가장 맑은 울림으로 전해질 거예요.",
+        "서로의 속도가 조금 달라도, 결국 같은 노을을 보며 웃게 될 날이 올 거예요.",
+        "당신이 준 작은 마음들이 모여, 누군가에게는 커다란 우주가 됩니다."
     ],
     career: [
-        "지금 걷는 이 길이 막막해도, 너만의 지도가 그려지고 있어.",
-        "실패는 시스템 오류일 뿐, 너라는 프로그램은 완벽해.",
-        "레벨업 직전이 가장 힘든 법이야. 조금만 더 힘내."
+        "지금 걷는 길이 비록 구불구불할지라도, 그 끝에는 당신만이 볼 수 있는 멋진 풍경이 기다려요.",
+        "넘어지는 것은 실패가 아니라, 더 높이 뛰어오르기 위해 바닥을 짚는 과정일 뿐이에요.",
+        "당신의 속도는 당신만이 결정할 수 있어요. 조급해하지 않아도 충분히 빛나고 있습니다.",
+        "세상의 기준에 맞추지 않아도 괜찮아요. 당신이라는 고유한 색이 가장 아름다우니까요."
     ],
     health: [
-        "가끔은 '일시정지' 버튼을 눌러도 괜찮아. 너는 충분히 달렸어.",
-        "충전이 필요한 배터리처럼, 너에게도 쉼표가 필요해.",
-        "오늘 하루 고생한 너에게, 따뜻한 위로의 패치를 보낼게."
+        "애쓰지 않아도 괜찮아요. 때로는 가만히 숨을 고르는 것만으로도 충분한 하루입니다.",
+        "당신의 마음이 쉴 곳을 찾을 수 있도록, 따뜻한 달빛이 당신의 밤을 지켜줄 거예요.",
+        "충분히 달려온 당신에게, 오늘은 작은 쉼표 하나를 선물해주면 어떨까요?",
+        "모든 것을 완벽하게 해내지 않아도 돼요. 당신은 존재만으로도 이미 소중한 사람입니다."
     ],
     default: [
-        "너의 오늘이 내일의 가장 멋진 오프닝 곡이 될 거야.",
-        "괜찮아, 인생은 픽셀 하나하나가 모여 완성되는 예술이니까.",
-        "네가 믿는 그 방향이 바로 정답으로 가는 지름길이야."
+        "당신이 믿고 있는 그 길이 당신을 가장 행복한 곳으로 데려다 줄 거예요.",
+        "작은 픽셀들이 모여 하나의 그림이 되듯, 당신의 하루하루가 모여 찬란한 미래가 됩니다.",
+        "누가 뭐래도 당신은 당신만의 아름다운 궤적을 그리며 잘 가고 있어요.",
+        "오늘 하루 고생 많았어요. 당신의 내일은 오늘보다 조금 더 다정한 바람이 불어올 거예요."
     ]
 };
 
 const pixelIcons = {
-    love: `<svg width="80" height="80" viewBox="0 0 8 8"><path d="M1 2h1v1H1zM2 1h1v1H2zM3 1h2v1H3zM5 1h1v1H5zM6 2h1v1H6zM7 3v2H6v1H5v1H4v-1H3v-1H2v-1H1V3h1v-1" fill="#ff00ff"/></svg>`,
-    career: `<svg width="80" height="80" viewBox="0 0 8 8"><path d="M3 1h2v1H3zM2 2h4v1H2zM1 3h6v2H1zM2 5h4v1H2zM3 6h2v1H3z" fill="#ffff00"/></svg>`,
-    health: `<svg width="80" height="80" viewBox="0 0 8 8"><path d="M3 1h2v1H3zM2 2h1v4H2zM5 2h1v4H5zM3 6h2v1H3zM3 3h2v1H3zM3 4h2v1H3z" fill="#00f2ff"/></svg>`,
-    default: `<svg width="80" height="80" viewBox="0 0 8 8"><path d="M2 1h4v1H2zM1 2h1v4H1zM6 2h1v4H6zM2 6h4v1H2zM3 3h2v2H3z" fill="#ffffff"/></svg>`
+    love: `<svg width="100" height="100" viewBox="0 0 8 8"><path d="M1 2h1v1H1zM2 1h1v1H2zM3 1h2v1H3zM5 1h1v1H5zM6 2h1v1H6zM7 3v2H6v1H5v1H4v-1H3v-1H2v-1H1V3h1v-1" fill="#ff7eb3"/></svg>`,
+    career: `<svg width="100" height="100" viewBox="0 0 8 8"><path d="M3 1h2v1H3zM2 2h4v1H2zM1 3h6v2H1zM2 5h4v1H2zM3 6h2v1H3z" fill="#ffffa1"/></svg>`,
+    health: `<svg width="100" height="100" viewBox="0 0 8 8"><path d="M3 1h2v1H3zM2 2h1v4H2zM5 2h1v4H5zM3 6h2v1H3zM3 3h2v1H3zM3 4h2v1H3z" fill="#70e1ff"/></svg>`,
+    default: `<svg width="100" height="100" viewBox="0 0 8 8"><path d="M2 1h4v1H2zM1 2h1v4H1zM6 2h1v4H6zM2 6h4v1H2zM3 3h2v2H3z" fill="#f5f5f7"/></svg>`
 };
 
 const generateBtn = document.getElementById('generate-btn');
@@ -38,27 +42,34 @@ generateBtn.addEventListener('click', () => {
     const worry = document.getElementById('worry').value.trim();
 
     if (!name || !worry) {
-        alert('이름과 고민을 모두 입력해 주세요!');
+        alert('당신의 소중한 이름과 고민을 들려주세요.');
         return;
     }
 
-    // 간단한 키워드 분석
-    let category = 'default';
-    if (worry.includes('사랑') || worry.includes('연애') || worry.includes('사람')) category = 'love';
-    else if (worry.includes('일') || worry.includes('취업') || worry.includes('공부') || worry.includes('돈')) category = 'career';
-    else if (worry.includes('피곤') || worry.includes('아파') || worry.includes('잠') || worry.includes('건강')) category = 'health';
+    // 결과 창으로 넘어가기 전 로딩 효과(선택 사항)를 위해 약간의 지연
+    generateBtn.innerText = "부적 생성 중...";
+    generateBtn.style.opacity = "0.7";
+    
+    setTimeout(() => {
+        let category = 'default';
+        if (worry.includes('사랑') || worry.includes('연애') || worry.includes('사람') || worry.includes('친구')) category = 'love';
+        else if (worry.includes('일') || worry.includes('취업') || worry.includes('공부') || worry.includes('돈') || worry.includes('성적')) category = 'career';
+        else if (worry.includes('피곤') || worry.includes('아파') || worry.includes('잠') || worry.includes('건강') || worry.includes('힘들어')) category = 'health';
 
-    // 랜덤 가사 선택
-    const categoryLyrics = lyricsDB[category];
-    const randomLyric = categoryLyrics[Math.floor(Math.random() * categoryLyrics.length)];
+        const categoryLyrics = lyricsDB[category];
+        const randomLyric = categoryLyrics[Math.floor(Math.random() * categoryLyrics.length)];
 
-    // 결과 표시
-    document.getElementById('result-name').innerText = `${name}님을 위한 비트 부적`;
-    document.getElementById('result-lyric').innerText = `"${randomLyric}"`;
-    document.getElementById('pixel-icon-container').innerHTML = pixelIcons[category];
+        document.getElementById('result-name').innerText = `${name}님의 마음을 지켜줄 비트 부적`;
+        document.getElementById('result-lyric').innerText = `"${randomLyric}"`;
+        document.getElementById('pixel-icon-container').innerHTML = pixelIcons[category];
 
-    inputSection.classList.add('hidden');
-    resultSection.classList.remove('hidden');
+        inputSection.classList.add('hidden');
+        resultSection.classList.remove('hidden');
+        resultSection.style.opacity = "1";
+        
+        generateBtn.innerText = "부적 생성하기";
+        generateBtn.style.opacity = "1";
+    }, 800);
 });
 
 retryBtn.addEventListener('click', () => {

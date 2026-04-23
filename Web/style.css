@@ -1,125 +1,185 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+KR:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nanum+Myeongjo:wght@700&family=Pretendard:wght@400;600&display=swap');
 
 :root {
-    --bg-color: #0d1117;
-    --card-bg: #161b22;
-    --neon-blue: #00f2ff;
-    --neon-pink: #ff00ff;
-    --neon-yellow: #ffff00;
-    --text-white: #ffffff;
-    --text-gray: #8b949e;
+    --bg-color: #0f121a;
+    --card-bg: #1a1f2e;
+    --neon-blue: #70e1ff;
+    --neon-pink: #ff7eb3;
+    --neon-purple: #bf5af2;
+    --text-white: #f5f5f7;
+    --text-gray: #a1a1a6;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-white);
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Pretendard', sans-serif;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
     width: 90%;
-    max-width: 500px;
+    max-width: 480px;
     text-align: center;
+    padding: 2rem 0;
 }
 
 .pixel-text {
     font-family: 'Press Start 2P', cursive;
     color: var(--neon-blue);
-    text-shadow: 2px 2px 0px var(--neon-pink);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: -2px;
+    filter: drop-shadow(0 0 5px var(--neon-blue));
 }
 
 .subtitle {
     color: var(--text-gray);
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
 }
 
 .card {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    border: 2px solid #30363d;
+    background: rgba(26, 31, 46, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .input-group {
     text-align: left;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
 }
 
 label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--text-gray);
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--neon-blue);
+    opacity: 0.8;
 }
 
 input, textarea {
     width: 100%;
-    padding: 1rem;
-    background-color: #010409;
-    border: 1px solid #30363d;
-    border-radius: 6px;
+    padding: 1.1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
     color: var(--text-white);
-    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
 }
 
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+    background: rgba(0, 242, 255, 0.05);
+    box-shadow: 0 0 15px rgba(112, 225, 255, 0.2);
+}
+
+/* 부적 생성 버튼 디테일 업그레이드 */
 .pixel-btn {
-    background-color: var(--neon-blue);
+    position: relative;
+    width: 100%;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
     color: #000;
     border: none;
-    padding: 1rem 2rem;
+    padding: 1.2rem;
+    border-radius: 14px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 4px 4px 0px var(--neon-pink);
-    transition: transform 0.1s;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 15px rgba(112, 225, 255, 0.3);
+}
+
+.pixel-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.pixel-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(112, 225, 255, 0.5);
+}
+
+.pixel-btn:hover::before {
+    left: 100%;
 }
 
 .pixel-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px var(--neon-pink);
+    transform: translateY(1px);
 }
 
 .secondary {
-    background-color: var(--text-gray);
-    box-shadow: 4px 4px 0px #30363d;
+    background: transparent;
+    border: 1px solid var(--text-gray);
+    color: var(--text-gray);
+    box-shadow: none;
     margin-top: 2rem;
+    font-family: 'Pretendard', sans-serif;
 }
 
 .hidden {
     display: none;
+    opacity: 0;
 }
 
+/* 결과 창 스타일링 */
 .lyric-box {
-    margin-top: 2rem;
-    padding: 1rem;
-    border-left: 4px solid var(--neon-blue);
-    background-color: rgba(0, 242, 255, 0.05);
+    margin: 2rem 0;
+    padding: 1.5rem;
+    position: relative;
 }
 
 #result-name {
-    margin-top: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    font-weight: 400;
 }
 
 .pixel-text-sub {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--neon-yellow);
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: var(--text-white);
+    word-break: keep-all;
 }
 
 #pixel-icon-container {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 svg {
-    filter: drop-shadow(0 0 8px var(--neon-blue));
+    filter: drop-shadow(0 0 15px var(--neon-blue));
 }
