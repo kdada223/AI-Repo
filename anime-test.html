@@ -83,8 +83,16 @@
                     </div>
 
                     <div id="result-view" class="hidden">
-                        <div id="image-preview-container">
-                            <img id="image-preview" src="#" alt="your image">
+                        <div id="comparison-container">
+                            <div class="image-box">
+                                <img id="image-preview" src="#" alt="your image">
+                                <div class="image-label">YOU</div>
+                            </div>
+                            <div class="vs-text">VS</div>
+                            <div class="image-box" id="character-box">
+                                <img id="character-img" src="" alt="character">
+                                <div class="image-label" id="character-label">ANIME</div>
+                            </div>
                         </div>
                         <div id="label-container"></div>
                         <button onclick="resetTest()" class="pixel-btn secondary" style="margin-top: 2rem;">다른 사진으로 하기</button>
@@ -174,13 +182,36 @@
             }
         });
 
+        // 캐릭터별 이미지 매핑 (실제 이미지 경로로 수정 가능)
+        const characterImages = {
+            '마인부우': 'https://upload.wikimedia.org/wikipedia/ko/a/af/%EB%A7%88%EC%9D%B8_%EB%B6%80%EC%9A%B0.png',
+            '잔망루피': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzHOfW6e0kF5f8IuL9L5n7I1K5vS1E3f7mXQ&s',
+            '훈이': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6-mXp7pX-mYxL-I5-F5-u-5-m-m-m-m-m-m&s',
+            '퉁퉁이': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-p-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m&s',
+            '도이츠 진': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-p-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m&s',
+            '치킨런': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-p-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m&s',
+            '토마스': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-p-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m&s',
+            '드라이브 아저씨': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-p-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m&s',
+            '브레드아저씨': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-p-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m&s',
+            '카레빵맨': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-p-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m&s',
+            '로즈': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-p-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m-x-m&s'
+        };
+
         async function predict() {
             const prediction = await model.predict(imagePreview);
             const labelContainer = document.getElementById("label-container");
+            const characterImg = document.getElementById("character-img");
+            const characterLabel = document.getElementById("character-label");
+            
             labelContainer.innerHTML = ''; 
 
             // 결과 정렬 (확률 높은 순)
             prediction.sort((a, b) => b.probability - a.probability);
+
+            // 가장 높은 확률의 캐릭터 이미지 표시
+            const topResult = prediction[0].className;
+            characterImg.src = characterImages[topResult] || 'https://via.placeholder.com/220?text=No+Image';
+            characterLabel.innerText = topResult;
 
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction = prediction[i].className;
