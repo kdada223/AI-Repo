@@ -3,7 +3,7 @@
 :root {
     /* Dark Mode (Default) */
     --bg-color: #0f121a;
-    --card-bg: rgba(26, 31, 46, 0.8);
+    --card-bg: rgba(26, 31, 46, 0.85);
     --neon-blue: #70e1ff;
     --neon-pink: #ff7eb3;
     --neon-purple: #bf5af2;
@@ -11,23 +11,26 @@
     --text-gray: #a1a1a6;
     --input-bg: rgba(0, 0, 0, 0.3);
     --border-color: rgba(255, 255, 255, 0.1);
+    --shadow: rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="light"] {
-    --bg-color: #f0f2f5;
-    --card-bg: rgba(255, 255, 255, 0.9);
-    --neon-blue: #007aff;
-    --neon-pink: #ff2d55;
-    --neon-purple: #5856d6;
-    --text-white: #1c1c1e;
-    --text-gray: #3a3a3c;
-    --input-bg: rgba(255, 255, 255, 1);
-    --border-color: rgba(0, 0, 0, 0.1);
+    /* Light Mode (Optimized) */
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --neon-blue: #0070f3;
+    --neon-pink: #eb008b;
+    --neon-purple: #7928ca;
+    --text-white: #111111;
+    --text-gray: #444444;
+    --input-bg: #f0f2f5;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --shadow: rgba(0, 0, 0, 0.1);
 }
 
 * {
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
@@ -49,7 +52,6 @@ body {
     padding: 4rem 2rem;
 }
 
-/* 왼쪽 여백을 댓글창과 동일하게 주어 메인 컨텐츠를 중앙으로 밈 */
 .layout-wrapper::before {
     content: "";
     flex: 0 0 380px; 
@@ -68,7 +70,7 @@ body {
     padding: 1.5rem;
     border-radius: 24px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px var(--shadow);
     margin-top: 10.5rem; 
     position: sticky;
     top: 2rem;
@@ -91,20 +93,17 @@ body {
         padding: 2rem 1rem;
         gap: 1rem;
     }
-
     .container, .comment-section {
         flex: 1;
         width: 100%;
         max-width: 480px;
     }
-
     .comment-section {
         margin-top: 2rem;
         position: static;
     }
 }
 
-/* 테마 토글 버튼 스타일 */
 .theme-toggle {
     position: fixed;
     top: 2rem;
@@ -120,7 +119,7 @@ body {
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px var(--shadow);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,7 +133,38 @@ body {
     padding: 2.5rem 2rem;
     border-radius: 24px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px var(--shadow);
+}
+
+.pixel-text {
+    font-family: 'Press Start 2P', cursive !important;
+    color: var(--neon-blue);
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: -2px;
+    filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+.subtitle {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1.8rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--neon-blue);
+    opacity: 0.8;
 }
 
 input, textarea {
@@ -146,22 +176,20 @@ input, textarea {
     color: var(--text-white);
     font-size: 1rem;
     font-family: inherit;
-    transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: var(--neon-blue);
-    background: rgba(0, 242, 255, 0.05);
-    box-shadow: 0 0 15px rgba(112, 225, 255, 0.2);
+    background: rgba(0, 112, 243, 0.05);
+    box-shadow: 0 0 15px rgba(0, 112, 243, 0.2);
 }
 
-/* 부적 생성 버튼 디테일 업그레이드 */
 .pixel-btn {
     position: relative;
     width: 100%;
     background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-    color: #000;
+    color: #fff;
     border: none;
     padding: 1.2rem;
     border-radius: 14px;
@@ -171,36 +199,12 @@ input:focus, textarea:focus {
     cursor: pointer;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 4px 15px rgba(112, 225, 255, 0.3);
-}
-
-.pixel-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    transition: 0.5s;
+    box-shadow: 0 4px 15px var(--shadow);
 }
 
 .pixel-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(112, 225, 255, 0.5);
-}
-
-.pixel-btn:hover::before {
-    left: 100%;
-}
-
-.pixel-btn:active {
-    transform: translateY(1px);
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .secondary {
@@ -217,21 +221,13 @@ input:focus, textarea:focus {
     opacity: 0;
 }
 
-/* 결과 창 스타일링 */
 .lyric-box {
     margin: 2rem 0;
     padding: 1.5rem;
-    position: relative;
-}
-
-#result-name {
-    font-size: 1.1rem;
-    color: var(--text-gray);
-    font-weight: 400;
 }
 
 .pixel-text-sub {
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Nanum Myeongjo', serif !important;
     font-size: 1.35rem;
     line-height: 1.8;
     color: var(--text-white);
