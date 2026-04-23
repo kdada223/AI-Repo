@@ -26,29 +26,49 @@ body {
 .layout-wrapper {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 3rem;
-    max-width: 1200px;
+    align-items: flex-start; /* 상단 정렬 */
+    gap: 2rem;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 4rem 2rem; /* 상단 여백 충분히 확보 */
 }
 
 .container {
-    width: 100%;
-    max-width: 480px;
+    flex: 0 0 480px; /* 메인 컨텐츠 너비 고정 */
     text-align: center;
 }
 
 .comment-section {
-    width: 100%;
-    max-width: 450px;
+    flex: 0 0 380px; /* 댓글창 너비 고정 */
     background: rgba(26, 31, 46, 0.5);
     backdrop-filter: blur(10px);
     padding: 1.5rem;
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    margin-top: 2rem;
+    /* 메인 컨텐츠의 header(h1 + p) 높이를 고려하여 상단 위치 조정 */
+    margin-top: 10.5rem; 
+    position: sticky; /* 스크롤 시 따라오도록 설정 (배너 느낌) */
+    top: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .layout-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+    }
+
+    .container, .comment-section {
+        flex: 1;
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .comment-section {
+        margin-top: 2rem;
+        position: static;
+    }
 }
 
 /* Disqus thread color adjustment if needed (Disqus usually inherits or has its own theme) */
